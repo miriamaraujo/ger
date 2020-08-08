@@ -18,22 +18,22 @@ session_start();
 </head>
 
 <body>
-<nav>
+    <nav>
         <div class="logo"><a href="index.php"> Ger's Garage</a></div>
 
         <ul class="nav-links">
             <li><a>+353 1 6333444</a> </li>
             <li><a href="about.php">About Us</a></li>
             <?php
-                if (isset($_SESSION['userId'])) {
-                    
-                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
-                    echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
-                } else {
-                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
-                }
+            if (isset($_SESSION['userId'])) {
 
-                ?>
+                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
+                echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
+            } else {
+                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
+            }
+
+            ?>
             <li><a href="#" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
                 <a href="#" class="fa fa-instagram"></a></li>
@@ -47,58 +47,40 @@ session_start();
 
     <div class="user-prof">
         <img src="img/p4.jpg" alt="" width="90px" style="border-radius: 50%;">
-        <h4>Pam Beesley</h4>
+        <h4><?php echo  $_SESSION['userName'] ?></h4>
         <a href="userdash.php" class="home-btn"><i class="fa fa-home" aria-hidden="true"></i></a>
         <a href="profile.php" class="profile-btn">My Profile</a>
         <a href="newbooking.php" class="new-book">+ New Booking</a>
-        
+
     </div>
 
     <h3>My Profile</h3>
     <div class="flex-container">
         <div class="details" id="details">
-            <h4>Pam Beesley</h4>
+        <h4><?php echo  $_SESSION['userName'] ?></h4>
             <p>E-mail: pam@dundlermifflin.com</p>
             <p>Phone 1: 0832344567</p>
             <p>Phone 2: 0832344567</p>
-            <p>Address: Dublin st. 450</p>  
-            <p>Vehicle Type: Car</p>  
-            <p>Vehicle Make: Tesla</p>  
-            <p>Vehicle Engine: Eletric</p>  
-            <p>Booking Type: Annual</p>  
-            
-            
+            <p>Address: Dublin st. 450</p>
+            <p>Vehicle Type: Car</p>
+            <p>Vehicle Make: Tesla</p>
+            <p>Vehicle Engine: Eletric</p>
+            <p>Booking Type: Annual</p>
+
+
             <div class="btn-dtls">
-                <a href="#update-prof" class="add-comment-btn">Update Profile</a>
-                <a href="dashboard.php" class="print-order-btn">My Orders</a>
+                <a href="update-profile.php" class="add-comment-btn">Update Profile</a>
+                <a href="userdash.php" class="print-order-btn">My Orders</a>
             </div>
         </div>
 
-        <div class="details" id="update-prof" style="text-align: center;">
-            <h4>Update Profile Details</h4>
-            <form action="#details">
-                <input type="text" placeholder="First Name">
-                <input type="text" placeholder="Surname">
-                <input type="text" placeholder="New E-mail">
-                <input type="text" placeholder="New Phone 1">
-                <input type="text" placeholder="New Phone 2">
-                <input type="text" placeholder="New Address">
-                <input type="text" placeholder="Vehicle Type">
-                <input type="text" placeholder="Vehicle Make">
-                <input type="text" placeholder="Vehicle Engine">
-                <input type="text" placeholder="Booking Type">
-                <input type="submit" value="Save Details">
-                
-
-            </form>
-        </div>
 
 
-        
+
 
     </div>
 
-    
+
 
 
 

@@ -1,3 +1,9 @@
+<?php
+session_start();
+include ('includes/dbh.inc.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,14 +21,25 @@
 </head>
 
 <body>
+
+<?php
+$sql = "SELECT * FROM bookings ;";
+$result = mysqli_query($conn, $sql);
+$resultCheck = mysqli_num_rows($result);
+$row = mysqli_fetch_assoc($result);
+
+
+?>
+
 <div class="bill-container">
 
     <h1>Ger's Garage</h1>
     <br>
     <h4>Car Repair Invoice</h4>
     <hr>
-    <p><b>Name: </b> Kevin Malone</p>
-    <p><b>Phone: </b> +353 1 6333444</p>
+    <p><b>Name: </b> <?php echo $row["u_name"]; ?></p>
+    <p><b>E-mail: </b> <?php echo $row["u_mail"]; ?></p>
+    <p><b>Phone: </b>  <?php echo $row["u_phone"]; ?></p>
     <p><b>Vehicle: </b> Tesla S</p>
     <p><b>Licence: </b> 4321 abc</p>
     <p><b>Service Type: </b> Annual</p>

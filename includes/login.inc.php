@@ -32,6 +32,13 @@ if(isset($_POST['login-submit'])){
                    session_start();
                    $_SESSION['userId'] = $row['id_user'];
                    $_SESSION['userName'] = $row['u_name'];
+                   $_SESSION['userMail'] = $row['u_mail'];
+                   $_SESSION['userPhone'] = $row['u_phone'];
+                   $_SESSION['vehicleType'] = $row['vehicle_type'];
+                   $_SESSION['vehicleMake'] = $row['vehicle_make'];
+                   $_SESSION['vehicleEngine'] = $row['vehicle_engine'];
+                   $_SESSION['uAddress'] = $row['u_address'];
+                   $_SESSION['service_type'] = $row['service_type'];
 
                    header("Location: ../userdash.php?login=success");
                     exit();

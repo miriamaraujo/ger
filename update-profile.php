@@ -56,32 +56,26 @@ session_start();
 
     <h3>My Profile</h3>
     <div class="flex-container">
-        <!-- I need to create the functions to send the data into the table bookings
-        I might create a file just like the signup one  -->
         <div class="details" id="update-prof" style="text-align: center;">
-            <h4>Add New Appointment</h4>
-            <form action="includes/booking.inc.php" method="POST">
-                <!-- I need to create function that fills it up some fields with user info from customers table -->
-
-                <input type="text" name="fname"  placeholder="Username"> <!-- this one works but the rest does not -->
-                <input type="text" name="umail" placeholder="Email">
-                <input type="text" name="uphone" placeholder="Phone">
-                <input type="text" name="problem" placeholder="Car Problem">
-                <input type="text" name="booktype"  placeholder="Booking Type">
-                <input type="date" name="bookdate" placeholder="Booking Date">
-                <input type="time" name="booktime" placeholder="Booking Time">
-                <input type="text" name="ucomments" placeholder="Comments">
-
-
-                <input type="submit" name="book-submit" value="Place Appointment">
+            <h4>Update Profile Details</h4>
+            <form action="#details">
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="Last Name">
+                <input type="text" placeholder="New E-mail">
+                <input type="text" placeholder="New Phone 1">
+                <input type="text" placeholder="New Phone 2">
+                <input type="text" placeholder="New Address">
+                <input type="text" placeholder="Vehicle Type">
+                <input type="text" placeholder="Vehicle Make">
+                <input type="text" placeholder="Vehicle Engine">
+                <input type="text" placeholder="Booking Type">
+                <input type="submit" value="Save Details">
 
 
             </form>
         </div>
 
- <?php
-//   echo $_SESSION['service_type']
-?>
+
 
 
     </div>

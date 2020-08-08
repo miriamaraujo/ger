@@ -47,11 +47,15 @@ session_start();
 
     <div class="user-prof">
         <img src="img/p4.jpg" alt="" width="90px" style="border-radius: 50%;">
-        <h4>Pam Beesley</h4>
+        <?php
+        if (isset($_SESSION['userName'])) {
+            echo '<h4> ' . $_SESSION['userName'] . ' </h4>';
+        }
+        ?>
         <a href="userdash.php" class="home-btn"><i class="fa fa-home" aria-hidden="true"></i></a>
         <a href="profile.php" class="profile-btn">My Profile</a>
         <a href="newbooking.php" class="new-book">+ New Booking</a>
-        
+
     </div>
 
 
