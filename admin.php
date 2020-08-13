@@ -27,10 +27,10 @@ session_start();
             <?php
                 if (isset($_SESSION['userId'])) {
                     
-                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
+                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account </a></li>';
                     echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
                 } else {
-                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
+                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account </a></li>';
                 }
 
                 ?>
@@ -99,10 +99,10 @@ session_start();
         <h4>Sign-Up to be updated</h4>
 
         <div class="footer-container">
-            <form action="">
-                <input type="text" placeholder="Name and Last Surname">
-                <input type="email" placeholder="E-mail">
-                <button>Submit</button>
+        <form action="includes/mkt.inc.php" method="POST">
+                <input type="text" name="namemkt" placeholder="Name and Last Surname">
+                <input type="text" name="emailmkt" placeholder="E-mail">
+                <button type="submit" name="mktsubmit">Submit</button>
             </form>
         </div>
         <ul>

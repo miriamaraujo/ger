@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "includes/booking.inc.php";
 ?>
 
 <!DOCTYPE html><html lang="en">
@@ -27,10 +28,10 @@ session_start();
             <?php
                 if (isset($_SESSION['userId'])) {
                     
-                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
+                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account </a></li>';
                     echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
                 } else {
-                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
+                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account </a></li>';
                 }
 
                 ?>
@@ -63,21 +64,21 @@ session_start();
     
     <div class="flex-container">
         <div class="details">
+
+       
             <h4>Flat Tyres</h4>
-            <p>Order Number: 102</p>
-            <p>Status: Booked</p>
-            <p>Booking Date: 10/12/2021 <span>- Time: 13:30pm</span></p>
+            <p><b>Order Number:</b> 102</p>
+            <p><b>Status:</b> Booked</p>
+            <p><b>Booking Date:</b> <?php echo $_SESSION['carProb'] ?> <span>- <b> Time: </b> <?php echo $_SESSION['bTime'] ?> </span></p>
             <br>
 
             <h4>More Details</h4>
-            <p>Car Make: Ford</p>
-            <p>Car Model: Ka</p>
-            <p>Engine Type: Hybrid</p>
-            <p>Licence Details: 102abc</p>
-            <p>Plan Type: Annual</p>
-            <p>Issues: Flat Tyres</p>
-            <p>Comments: My car is so cool that it ice-creams</p>
-            <p>Adtional Repairs: This section can only be added by Ger</p>
+            <p><b>Car Make:</b> <?php echo $_SESSION['vehicleMake'] ?></p>
+            <p><b>Engine Type:</b> <?php echo $_SESSION['vehicleEngine'] ?></p>
+            <p><b>Plan Type:</b> <?php echo $_SESSION['service_type']?></p>
+            <p><b>Issues:</b> Flat Tyres</p>
+            <p><b>Comments:</b> My car is so cool that it ice-creams</p>
+            <p><b>Adtional Repairs:</b> This section can only be modified by Ger</p>
 
             <div class="btn-dtls">
                 <a href="#" class="add-comment-btn"> Update Comment</a>
@@ -96,10 +97,10 @@ session_start();
         <h4>Sign-Up to be updated</h4>
 
         <div class="footer-container">
-            <form action="">
-                <input type="text" placeholder="Name and Last Surname">
-                <input type="email" placeholder="E-mail">
-                <button>Submit</button>
+        <form action="includes/mkt.inc.php" method="POST">
+                <input type="text" name="namemkt" placeholder="Name and Last Surname">
+                <input type="text" name="emailmkt" placeholder="E-mail">
+                <button type="submit" name="mktsubmit">Submit</button>
             </form>
         </div>
         <ul>

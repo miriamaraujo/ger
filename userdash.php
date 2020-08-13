@@ -1,6 +1,8 @@
 <?php
 session_start();
-include ('includes/usercheck.php');
+include('includes/usercheck.php');
+include_once 'includes/dbh.inc.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,15 +28,15 @@ include ('includes/usercheck.php');
             <li><a>+353 1 6333444</a> </li>
             <li><a href="about.php">About Us</a></li>
             <?php
-                if (isset($_SESSION['userId'])) {
-                    
-                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
-                    echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
-                } else {
-                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
-                }
+            if (isset($_SESSION['userId'])) {
 
-                ?>
+                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account</a></li>';
+                echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
+            } else {
+                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account </a></li>';
+            }
+
+            ?>
             <li><a href="#" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
                 <a href="#" class="fa fa-instagram"></a></li>
@@ -58,73 +60,33 @@ include ('includes/usercheck.php');
         <a href="newbooking.php" class="new-book">+ New Booking</a>
 
     </div>
-
-
     <h3>My Orders</h3>
     <div class="flex-container">
-        <div class="order-box">
-            <h4>Flat Tyres</h4>
-            <p>Order Number: 102</p>
-            <p>Status: Booked</p>
-            <p>Booking Date: 10/12/2021 <span>- Time: 13:30pm</span></p>
+        <?php
+        $sql = "SELECT * FROM booking;";
+        $results = mysqli_query($conn, $sql);
+        $resultCheck = mysqli_num_rows($results);
+        if ($resultCheck > 0) {
+            while ($row = mysqli_fetch_assoc($results)) {
 
-
-            <button><a href="order-details.php">+ Details</a></button>
-        </div>
-        <div class="order-box">
-            <h4>Overheating Engine</h4>
-            <p>Order Number: 153</p>
-            <p>Status: In Service</p>
-            <p>Booking Date: 10/12/2021 <span>- Time: 13:30pm</span></p>
-
-
-            <button><a href="order-details.php">+ Details</a></button>
-        </div>
-        <div class="order-box">
-            <h4>Windows Replacement</h4>
-            <p>Order Number: 102</p>
-            <p>Status: Booked</p>
-            <p>Booking Date: 10/12/2021 <span>- Time: 13:30pm</span></p>
-
-
-            <button><a href="order-details.php">+ Details</a></button>
-        </div>
-        <div class="order-box">
-            <h4>Car Wash and Polish</h4>
-            <p>Order Number: 153</p>
-            <p>Status: In Service</p>
-            <p>Booking Date: 10/12/2021 <span>- Time: 13:30pm</span></p>
-
-
-            <button><a href="order-details.php">+ Details</a></button>
-        </div>
-
+                echo ' <div class="order-box">
+                <h4>' . $row['c_prob'] . '</h4>
+                <p><b>Order Number:</b>' . $row['id_booking'] . '</p>
+                <p><b>Booking Date:</b>' . $row['b_date'] . '</p>
+                <p><b>Booking Time:</b>' . $row['b_time'] . '</p>
+                <p><b>Booking Reason:</b>' . $row['c_prob'] . '</p>
+                <p><b>Car Make:</b>' . $row['c_make'] . '</p>
+                <p><b>Car Engine:</b>' . $row['c_eng'] . '</p>
+                <p><b>My Comments:</b>' . $row['comments'] . '</p>
+                <a href="bill.php" class="print-order-btn"> Print Order</a> 
+                </div>';
+            }
+        }
+        ?>
     </div>
-    <div class="footer">
-        <h4>Sign-Up to be updated</h4>
-
-        <div class="footer-container">
-            <form action="">
-                <input type="text" placeholder="Name and Last Surname">
-                <input type="email" placeholder="E-mail">
-                <button>Submit</button>
-            </form>
-        </div>
-        <ul>
-            <li><a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
-                <a href="#" class="fa fa-instagram"></a></li>
-        </ul>
-        <div class="footer-info">
-            <p>CCT College Dublin</p>
-            <p> 30 - 34 Westmoreland St. Dublin 2</p>
-            <p>Ireland</p>
-            <p> +353 1 6333444</p>
-            <p> info@cct.ie</p>
-        </div>
 
 
-    </div>
+
     <script src="script.js"> </script>
 </body>
 

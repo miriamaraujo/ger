@@ -27,10 +27,10 @@ session_start();
             <?php
             if (isset($_SESSION['userId'])) {
 
-                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
+                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account</a></li>';
                 echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
             } else {
-                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
+                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account</a></li>';
             }
 
             ?>
@@ -58,14 +58,13 @@ session_start();
     <div class="flex-container">
         <div class="details" id="details">
         <h4><?php echo  $_SESSION['userName'] ?></h4>
-            <p>E-mail: pam@dundlermifflin.com</p>
-            <p>Phone 1: 0832344567</p>
-            <p>Phone 2: 0832344567</p>
-            <p>Address: Dublin st. 450</p>
-            <p>Vehicle Type: Car</p>
-            <p>Vehicle Make: Tesla</p>
-            <p>Vehicle Engine: Eletric</p>
-            <p>Booking Type: Annual</p>
+            <p>E-mail: <?php echo  $_SESSION['userMail'] ?></p>
+            <p>Phone 1: <?php echo  $_SESSION['userPhone'] ?></p>
+            <p>Address: <?php echo  $_SESSION['uAddress'] ?></p>
+            <p>Vehicle Type: <?php echo  $_SESSION['vehicleType'] ?></p>
+            <p>Vehicle Make: <?php echo  $_SESSION['vehicleMake'] ?></p>
+            <p>Vehicle Engine: <?php echo  $_SESSION['vehicleEngine'] ?></p>
+            <p>Booking Type: <?php echo  $_SESSION['uAddress'] ?></p>
 
 
             <div class="btn-dtls">
@@ -89,10 +88,10 @@ session_start();
         <h4>Sign-Up to be updated</h4>
 
         <div class="footer-container">
-            <form action="">
-                <input type="text" placeholder="Name and Last Surname">
-                <input type="text" placeholder="E-mail">
-                <button>Submit</button>
+        <form action="includes/mkt.inc.php" method="POST">
+                <input type="text" name="namemkt" placeholder="Name and Last Surname">
+                <input type="text" name="emailmkt" placeholder="E-mail">
+                <button type="submit" name="mktsubmit">Submit</button>
             </form>
         </div>
         <ul>

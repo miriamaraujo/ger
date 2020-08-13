@@ -28,7 +28,7 @@ session_start();
                 <li><a href="about.php">About Us</a></li>
                 <?php
                 if (isset($_SESSION['userId'])) {
-
+                    
                     echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account </a></li>';
                     echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
                 } else {
@@ -121,68 +121,34 @@ session_start();
 
 
     </div>
-    <div class="container-team">
+    <div class="container">
         <h3>Meet our team</h3>
         <div class="flex-container">
-        <div class="staff">
-                <img src="img/p4.jpg" alt="">
-                <h4>Pam Beesly</h4>
-                <p> Mechanic | Recepcionist </p>
-            </div>
-
-            <div class="staff">
-                <img src="img/p5.png" alt="">
-                <h4>Michael Scott</h4>
-                <p> Mechanic | Regional Manager </p>
-            </div>
-
-            <div class="staff">
-                <img src="img/p6.png" alt="">
-                <h4>Dwight Schrute</h4>
-                <p> Mechanic | Assitant to the Regional Manager </p>
-            </div>
-            <div class="staff">
-                <img src="img/p9.jpg" alt="">
-                <h4>Stanley Hudson</h4>
-                <p> Retired | Mechanic </p>
-            </div>
-
-            <div class="staff">
-                <img src="img/p8.png" alt="">
-                <h4>Kevin Malone</h4>
-                <p> Accounting Department </p>
-            </div>
-
-            <div class="staff">
-                <img src="img/p7.jpeg" alt="">
-                <h4>Jim Halpert</h4>
-                <p> Mechanic | Sales </p>
-            </div>
-
-            
 
         </div>
     </div>
 
     <div class="banner-booking" style="background-image:url('img/3031213.jpg');">
-        <div class="overlay"></div>
-        <a href="userdash.php">Make an appointment</a>
+        <a href="#">Make an appointment</a>
     </div>
 
 
     <div class="maps">
         <h3>Find Us</h3>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2381.844273032701!2d-6.261063984857355!3d53.346043782436006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e84cfcc9cbf%3A0x689c7d1c132a0ddf!2sCCT%20College%20Dublin!5e0!3m2!1sen!2sie!4v1592746759440!5m2!1sen!2sie" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2381.844273032701!2d-6.261063984857355!3d53.346043782436006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670e84cfcc9cbf%3A0x689c7d1c132a0ddf!2sCCT%20College%20Dublin!5e0!3m2!1sen!2sie!4v1592746759440!5m2!1sen!2sie"
+            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
     </div>
 
     <div class="footer">
         <h4>Sign-Up to be updated</h4>
 
         <div class="footer-container">
-        <form action="includes/mkt.inc.php" method="POST">
-                <input type="text" name="namemkt" placeholder="Name and Last Surname">
-                <input type="text" name="emailmkt" placeholder="E-mail">
-                <button type="submit" name="mktsubmit">Submit</button>
+            <form action="">
+                <input type="text" placeholder="Name and Last Surname">
+                <input type="text" placeholder="E-mail">
+                <button>Submit</button>
             </form>
         </div>
         <ul>

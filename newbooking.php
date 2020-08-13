@@ -27,10 +27,10 @@ session_start();
             <?php
             if (isset($_SESSION['userId'])) {
 
-                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
+                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account</a></li>';
                 echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
             } else {
-                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Profile </a></li>';
+                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account</a></li>';
             }
 
             ?>
@@ -54,34 +54,33 @@ session_start();
 
     </div>
 
-    <h3>My Profile</h3>
+    <h3>New Appointment</h3>
     <div class="flex-container">
         <!-- I need to create the functions to send the data into the table bookings
         I might create a file just like the signup one  -->
         <div class="details" id="update-prof" style="text-align: center;">
-            <h4>Add New Appointment</h4>
+            
             <form action="includes/booking.inc.php" method="POST">
-                <!-- I need to create function that fills it up some fields with user info from customers table -->
+               
 
-                <input type="text" name="fname"  placeholder="Username"> <!-- this one works but the rest does not -->
-                <input type="text" name="umail" placeholder="Email">
-                <input type="text" name="uphone" placeholder="Phone">
-                <input type="text" name="problem" placeholder="Car Problem">
-                <input type="text" name="booktype"  placeholder="Booking Type">
-                <input type="date" name="bookdate" placeholder="Booking Date">
-                <input type="time" name="booktime" placeholder="Booking Time">
-                <input type="text" name="ucomments" placeholder="Comments">
-
-
+            <input type="text" name="fname" value="<?php echo $_SESSION['userName'] ?>"> <!-- I tried to swapping placeholder for value storing the info from the user in the database with the variable session -->
+                <input type="text" name="umail" value="<?php echo $_SESSION['userMail'] ?>">
+                <input type="tel" name="uphone" value="<?php echo $_SESSION['userPhone'] ?>">
+                <input type="text" name="cmake" value="<?php echo $_SESSION['vehicleMake'] ?>">
+                <input type="text" name="cengine" value="<?php echo $_SESSION['vehicleEngine'] ?>">
+                <input type="text" name="cprob" placeholder="Car Problem">
+                <input type="date" name="bdate" placeholder="Date">
+                <input type="time" name="btime" placeholder="Time">
+                <input type="text" name="comment" placeholder="Comments">
                 <input type="submit" name="book-submit" value="Place Appointment">
 
 
             </form>
         </div>
 
- <?php
-//   echo $_SESSION['service_type']
-?>
+        <?php
+        //   echo $_SESSION['service_type']
+        ?>
 
 
     </div>
@@ -95,10 +94,10 @@ session_start();
         <h4>Sign-Up to be updated</h4>
 
         <div class="footer-container">
-            <form action="">
-                <input type="text" placeholder="Name and Last Surname">
-                <input type="text" placeholder="E-mail">
-                <button>Submit</button>
+            <form action="includes/mkt.inc.php" method="POST">
+                <input type="text" name="namemkt" placeholder="Name and Last Surname">
+                <input type="text" name="emailmkt" placeholder="E-mail">
+                <button type="submit" name="mktsubmit">Submit</button>
             </form>
         </div>
         <ul>
