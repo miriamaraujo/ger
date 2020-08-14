@@ -166,7 +166,7 @@ session_start();
 
     <div class="banner-booking" style="background-image:url('img/3031213.jpg');">
         <div class="overlay"></div>
-        <a href="userdash.php">Make an appointment</a>
+        <a href="newbooking.php">Make an appointment</a>
     </div>
 
 

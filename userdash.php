@@ -74,11 +74,7 @@ include_once 'includes/dbh.inc.php';
                 <p><b>Order Number:</b>' . $row['id_booking'] . '</p>
                 <p><b>Booking Date:</b>' . $row['b_date'] . '</p>
                 <p><b>Booking Time:</b>' . $row['b_time'] . '</p>
-                <p><b>Booking Reason:</b>' . $row['c_prob'] . '</p>
-                <p><b>Car Make:</b>' . $row['c_make'] . '</p>
-                <p><b>Car Engine:</b>' . $row['c_eng'] . '</p>
-                <p><b>My Comments:</b>' . $row['comments'] . '</p>
-                <a href="bill.php" class="print-order-btn"> Print Order</a> 
+                <button><a href="order-details.php?id=' . $row['id_booking'] . '">+ Details</a></button> 
                 </div>';
             }
         }

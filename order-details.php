@@ -1,9 +1,12 @@
 <?php
 session_start();
-include "includes/booking.inc.php";
+include('includes/usercheck.php');
+include 'includes/dbh.inc.php';
+
 ?>
 
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -19,22 +22,22 @@ include "includes/booking.inc.php";
 </head>
 
 <body>
-<nav>
+    <nav>
         <div class="logo"><a href="index.php"> Ger's Garage</a></div>
 
         <ul class="nav-links">
             <li><a>+353 1 6333444</a> </li>
             <li><a href="about.php">About Us</a></li>
             <?php
-                if (isset($_SESSION['userId'])) {
-                    
-                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account </a></li>';
-                    echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
-                } else {
-                    echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account </a></li>';
-                }
+            if (isset($_SESSION['userId'])) {
 
-                ?>
+                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account </a></li>';
+                echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
+            } else {
+                echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account </a></li>';
+            }
+
+            ?>
             <li><a href="#" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
                 <a href="#" class="fa fa-instagram"></a></li>
@@ -60,29 +63,41 @@ include "includes/booking.inc.php";
     </div>
 
 
+
+    <?php
+    if (isset($_GET['id'])) {
+        $idbk = mysqli_real_escape_string($conn, $_GET['id']);
+
+        $sql = "SELECT * FROM booking WHERE id_booking='$idbk' ";
+        $result = mysqli_query($conn, $sql) or die("Bad query: $sql");
+        $row = mysqli_fetch_assoc($result);
+    }
+    ?>
+
     <h3>Order Details</h3>
-    
+
     <div class="flex-container">
         <div class="details">
 
-       
-            <h4>Flat Tyres</h4>
-            <p><b>Order Number:</b> 102</p>
-            <p><b>Status:</b> Booked</p>
-            <p><b>Booking Date:</b> <?php echo $_SESSION['carProb'] ?> <span>- <b> Time: </b> <?php echo $_SESSION['bTime'] ?> </span></p>
+
+            <h4><?php echo $row['c_prob']  ?> </h4>
+            <p><b>Order Number:</b> <?php echo $row['id_booking'] ?></p>
+
+            <p><b>Booking Date:</b> <?php echo $row['b_date']  ?> <span>- <b> Time: </b> <?php echo $row['b_time']  ?> </span></p>
             <br>
 
             <h4>More Details</h4>
-            <p><b>Car Make:</b> <?php echo $_SESSION['vehicleMake'] ?></p>
-            <p><b>Engine Type:</b> <?php echo $_SESSION['vehicleEngine'] ?></p>
-            <p><b>Plan Type:</b> <?php echo $_SESSION['service_type']?></p>
-            <p><b>Issues:</b> Flat Tyres</p>
-            <p><b>Comments:</b> My car is so cool that it ice-creams</p>
-            <p><b>Adtional Repairs:</b> This section can only be modified by Ger</p>
+            <p><b>Car Make:</b> <?php echo $row['c_make']  ?></p>
+            <p><b>Engine Type:</b> <?php echo $row['c_eng']  ?></p>
+            <p><b>Plan Type:</b> <?php echo $_SESSION['service_type'] ?></p>
+            <p><b>Issues:</b> <?php echo $row['c_prob']  ?></p>
+            <p><b>Comments:</b> <?php echo $row['comments'] ?></p>
+            <p><b>Adtional Repairs:</b> This section can only be modified by Ger, but has not been set yet</p>
 
             <div class="btn-dtls">
-                <a href="#" class="add-comment-btn"> Update Comment</a>
-                <a href="bill.php" class="print-order-btn"> Print Order</a>
+                <!-- <a href="#" class="add-comment-btn"> Update Comment</a> -->
+                <?php echo '<a href="bill.php?id=' .$row['id_booking'].'" class="print-order-btn"> Print Order</a>'
+                ?>
             </div>
 
 
@@ -97,7 +112,7 @@ include "includes/booking.inc.php";
         <h4>Sign-Up to be updated</h4>
 
         <div class="footer-container">
-        <form action="includes/mkt.inc.php" method="POST">
+            <form action="includes/mkt.inc.php" method="POST">
                 <input type="text" name="namemkt" placeholder="Name and Last Surname">
                 <input type="text" name="emailmkt" placeholder="E-mail">
                 <button type="submit" name="mktsubmit">Submit</button>
