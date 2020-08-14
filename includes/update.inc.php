@@ -12,18 +12,22 @@ if (isset($_POST['update-submit'])) {
     $nAddress = mysqli_real_escape_string($conn, $_POST['n_address']);
     $sType = mysqli_real_escape_string($conn, $_POST['s_type']);
 
+    if (empty($nName) || empty($nMail) || empty($nPhone) || empty($nAddress) || empty($sType)) {
 
-    $query = "UPDATE `customers` SET u_name='".$nName."', u_mail='".$nMail."', u_phone='".$nPhone."', vehicle_type='".$cType."', vehicle_make='".$cMake."', vehicle_engine='".$cEng."', u_address='".$nAddress."', service_type='".$sType."' WHERE `id_user` = $id_user" ;
+        header('location: ../update-profile.php?emptyfields');
+        exit();
+    }
 
-$result = mysqli_query($conn, $query);
-if($result)
-   {
-    header('location: ../profile.php?successupdated');
-    exit();
-   }else{
-    header('location: ../profile.php?updatefailed');
-    exit();
-   }
-   mysqli_close($connect);
+
+    $query = "UPDATE `customers` SET u_name='" . $nName . "', u_mail='" . $nMail . "', u_phone='" . $nPhone . "', vehicle_type='" . $cType . "', vehicle_make='" . $cMake . "', vehicle_engine='" . $cEng . "', u_address='" . $nAddress . "', service_type='" . $sType . "' WHERE `id_user` = $id_user";
+
+    $result = mysqli_query($conn, $query);
+    if ($result) {
+        header('location: ../profile.php?successupdated');
+        exit();
+    } else {
+        header('location: ../profile.php?updatefailed');
+        exit();
+    }
+    mysqli_close($connect);
 }
-

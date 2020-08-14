@@ -38,9 +38,9 @@ include 'includes/dbh.inc.php';
             }
 
             ?>
-            <li><a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
-                <a href="#" class="fa fa-instagram"></a></li>
+            <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/cctcollege/" class="fa fa-instagram"></a>
+                    <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -119,9 +119,9 @@ include 'includes/dbh.inc.php';
             </form>
         </div>
         <ul>
-            <li><a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
-                <a href="#" class="fa fa-instagram"></a></li>
+        <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/cctcollege/" class="fa fa-instagram"></a>
+                    <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
         </ul>
         <div class="footer-info">
             <p>CCT College Dublin</p>
