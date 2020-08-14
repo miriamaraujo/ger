@@ -10,23 +10,15 @@ if (isset($_POST['book-submit'])) {
     $carProb = mysqli_real_escape_string($conn, $_POST['cprob']);
     $bDate = mysqli_real_escape_string($conn, $_POST['bdate']);
     $bTime = mysqli_real_escape_string($conn, $_POST['btime']);
+    $sType = mysqli_real_escape_string($conn, $_POST['serv_type']);//add field to db and to the code below
     $commment = mysqli_real_escape_string($conn, $_POST['comment']);
 
     // Query
-    $query = mysqli_query($conn,  "INSERT INTO booking(u_name, u_mail, u_phone, c_make, c_eng, c_prob, b_date, b_time, comments) VALUES ('$name', '$mail', '$phone', '$carMake', '$carEngine', '$carProb', '$bDate', '$bTime', '$commment')");
+    $query = mysqli_query($conn,  "INSERT INTO booking(u_name, u_mail, u_phone, c_make, c_eng, c_prob, b_date, b_time, s_type, comments) VALUES ('$name', '$mail', '$phone', '$carMake', '$carEngine', '$carProb', '$bDate', '$bTime', '$sType', '$commment')");
     if ($query) {
         $_SESSION['id_bk'] = $db->insert_id;
         session_start();
-        $_SESSION['userNamebk'] = $row['u_name'];
-        $_SESSION['userMailbk'] = $row['u_mail'];
-        $_SESSION['userPhonebk'] = $row['u_phone'];
-        $_SESSION['vehicleMake'] = $row['c_make'];
-        $_SESSION['vehicleEngine'] = $row['c_eng'];
-        $_SESSION['carProb'] = $row['c_prob'];
-        $_SESSION['bDate'] = $row['b_date'];
-        $_SESSION['bTime'] = $row['b_time'];
-        $_SESSION['comments'] = $row['comments'];
-        
+               
         header('location: ../newbooking.php?bookingsuccess');
         exit();
     } else {

@@ -60,10 +60,11 @@ include_once 'includes/dbh.inc.php';
         <a href="newbooking.php" class="new-book">+ New Booking</a>
 
     </div>
+
     <h3>My Orders</h3>
     <div class="flex-container">
         <?php
-        $sql = "SELECT * FROM booking;";
+        $sql = "SELECT * FROM booking;"; // I need to find a way to display only this user's orders and not all of them
         $results = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($results);
         if ($resultCheck > 0) {

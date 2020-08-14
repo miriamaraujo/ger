@@ -401,6 +401,14 @@ iframe{
     margin:10px auto;
 }
 
+.details select{
+    padding: 1.5% 3%;
+    width: 65%;
+    border-radius: 25px;
+    border:  solid 1px #b1b1b1;
+    margin:10px auto;
+}
+
 .details input:focus{
     border: 1px solid #585559;
 }

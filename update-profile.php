@@ -54,20 +54,33 @@ session_start();
 
     </div>
 
+
+    <?php
+
+    ?>
+
+
     <h3>My Profile</h3>
     <div class="flex-container">
-        <div class="details"style="text-align: center;">
+        <div class="details" style="text-align: center;">
             <h4>Update Profile Details</h4>
-            <form action="#details">
-                <input type="text" placeholder="User Name">
-                <input type="text" placeholder="New E-mail">
-                <input type="text" placeholder="New Phone 1">
-                <input type="text" placeholder="New Address">
-                <input type="text" placeholder="Vehicle Type">
-                <input type="text" placeholder="Vehicle Make">
-                <input type="text" placeholder="Vehicle Engine">
-                <input type="text" placeholder="Booking Type">
-                <input type="submit" value="Save Details">
+            <form action="includes/update.inc.php" method="POST">
+                <input type="text" name="id" value="<?php echo $_SESSION['userId'] ?>" style="display: none;">
+                <input type="text" name="n_name" placeholder="User Name">
+                <input type="text" name="n_mail" placeholder="E-mail">
+                <input type="text" name="n_phone" placeholder="Phone">
+                <input type="text" name="c_type" placeholder="Vehicle Type">
+                <input type="text" name="c_make" placeholder="Vehicle Make">
+                <input type="text" name="c_eng" placeholder="Vehicle Engine">
+                <input type="text" name="n_address" placeholder="Address">
+                <select name="s_type" placeholder="Booking Type">
+                    <option value="default">Service Type</option>
+                    <option value="Annual Service">Annual Service</option>
+                    <option value="Major Service">Major Service</option>
+                    <option value="Repair Fault">Repair/Fault</option>
+                    <option value="Major Repair">Major Repair</option>
+                </select>
+                <input type="submit" name="update-submit" value="Save Details">
 
 
             </form>

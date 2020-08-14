@@ -71,6 +71,7 @@ session_start();
                 <input type="text" name="cprob" placeholder="Car Problem">
                 <input type="date" name="bdate" placeholder="Date">
                 <input type="time" name="btime" placeholder="Time">
+                <input type="text" name="serv_type" value="<?php echo $_SESSION['service_type'] ?>">
                 <input type="text" name="comment" placeholder="Comments">
                 <input type="submit" name="book-submit" value="Place Appointment">
 
