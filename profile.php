@@ -59,11 +59,12 @@ session_start();
         <div class="details" id="details">
         <h4><?php echo  $_SESSION['userName'] ?></h4>
             <p><b> E-mail: </b><?php echo  $_SESSION['userMail'] ?></p>
-            <p><b> Phone 1: </b><?php echo  $_SESSION['userPhone'] ?></p>
+            <p><b> Phone: </b><?php echo  $_SESSION['userPhone'] ?></p>
             <p><b> Address: </b><?php echo  $_SESSION['uAddress'] ?></p>
             <p><b> Vehicle Type: </b><?php echo  $_SESSION['vehicleType'] ?></p>
             <p><b> Vehicle Make: </b><?php echo  $_SESSION['vehicleMake'] ?></p>
-            <p><b> Vehicle Engine: </b><?php echo  $_SESSION['vehicleEngine'] ?></p>
+            <p><b> Vehicle Model/Engine: </b><?php echo  $_SESSION['vehicleEngine'] ?></p>
+            <p><b> Licence Details: </b><?php echo  $_SESSION['licence'] ?></p>
             <p><b> Booking Type: </b> <?php echo  $_SESSION['service_type'] ?></p>
 
 

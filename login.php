@@ -51,9 +51,9 @@ session_start();
                     <input type="email" name="umail" placeholder="E-mail">
                     <input type="password" name="pwd" placeholder="Password">
                     <input type="submit" name="login-submit" value="Login">
-                    <div class="rememberme">
+                    <!-- <div class="rememberme">
                         <input type="checkbox" name="remember" id="remember"><label for="remember">Remember me </label>
-                    </div>
+                    </div> -->
                 </form>
             </div>
             <div class="flex-div">

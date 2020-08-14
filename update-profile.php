@@ -66,13 +66,23 @@ session_start();
             <h4>Update Profile Details</h4>
             <form action="includes/update.inc.php" method="POST">
                 <input type="text" name="id" value="<?php echo $_SESSION['userId'] ?>" style="display: none;">
-                <input type="text" name="n_name" placeholder="User Name">
-                <input type="text" name="n_mail" placeholder="E-mail">
-                <input type="text" name="n_phone" placeholder="Phone">
-                <input type="text" name="c_type" placeholder="Vehicle Type">
-                <input type="text" name="c_make" placeholder="Vehicle Make">
-                <input type="text" name="c_eng" placeholder="Vehicle Engine">
-                <input type="text" name="n_address" placeholder="Address">
+                <br><label for="n_name">Your Name</label><br>
+                <input type="text" name="n_name" value="<?php echo $_SESSION['userName'] ?>">
+                <br><label for="n_mail">Your e-mail</label><br>
+                <input type="text" name="n_mail" value="<?php echo $_SESSION['userMail'] ?>">
+                <br><label for="n_phone">Phone</label><br>
+                <input type="text" name="n_phone" value="<?php echo $_SESSION['userPhone'] ?>">
+                <br><label for="c_type">Vehicle Type</label><br>
+                <input type="text" name="c_type" value="<?php echo $_SESSION['vehicleType'] ?>">
+                <br><label for="c_make">Vehicle Make</label><br>
+                <input type="text" name="c_make" value="<?php echo $_SESSION['vehicleMake'] ?>">
+                <br><label for="c_eng">Vehicle Engine</label><br>
+                <input type="text" name="c_eng" value="<?php echo $_SESSION['vehicleEngine'] ?>">
+                <br><label for="l_details">Licence Details</label><br>
+                <input type="text" name="l_details" value="<?php echo $_SESSION['licence'] ?>">
+                <br><label for="n_address">Address</label><br>
+                <input type="text" name="n_address" value="<?php echo $_SESSION['uAddress'] ?>">
+                
                 <select name="s_type" placeholder="Booking Type">
                     <option value="default">Service Type</option>
                     <option value="Annual Service">Annual Service</option>

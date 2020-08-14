@@ -409,6 +409,12 @@ iframe{
     margin:10px auto;
 }
 
+.details label{
+font-size: 14px;
+}
+
+
+
 .details input:focus{
     border: 1px solid #585559;
 }

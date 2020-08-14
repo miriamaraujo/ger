@@ -82,7 +82,31 @@ include_once 'includes/dbh.inc.php';
         ?>
     </div>
 
+    <div class="footer">
+        <h4>Sign-Up to be updated</h4>
 
+        <div class="footer-container">
+            <form action="includes/mkt.inc.php" method="POST">
+                <input type="text" name="namemkt" placeholder="Name and Last Surname">
+                <input type="text" name="emailmkt" placeholder="E-mail">
+                <button type="submit" name="mktsubmit">Submit</button>
+            </form>
+        </div>
+        <ul>
+        <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/cctcollege/" class="fa fa-instagram"></a>
+                    <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
+        </ul>
+        <div class="footer-info">
+            <p>CCT College Dublin</p>
+            <p> 30 - 34 Westmoreland St. Dublin 2</p>
+            <p>Ireland</p>
+            <p> +353 1 6333444</p>
+            <p> info@cct.ie</p>
+        </div>
+
+
+    </div>
 
     <script src="script.js"> </script>
 </body>

@@ -95,9 +95,10 @@ include 'includes/dbh.inc.php';
             <p><b>Adtional Repairs:</b> This section can only be modified by Ger, but has not been set yet</p>
 
             <div class="btn-dtls">
-                <!-- <a href="#" class="add-comment-btn"> Update Comment</a> -->
+                
                 <?php echo '<a href="bill.php?id=' .$row['id_booking'].'" class="print-order-btn"> Print Order</a>'
                 ?>
+                <a href="userdash.php" class="add-comment-btn"> My Orders</a>
             </div>
 
 
