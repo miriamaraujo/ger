@@ -40,7 +40,7 @@ include 'includes/dbh.inc.php';
             ?>
             <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
                 <a href="https://www.instagram.com/cctcollege/" class="fa fa-instagram"></a>
-                    <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
+                <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -72,6 +72,22 @@ include 'includes/dbh.inc.php';
         $result = mysqli_query($conn, $sql) or die("Bad query: $sql");
         $row = mysqli_fetch_assoc($result);
     }
+
+    // if (isset($_GET['delete'])) {
+
+    //     $idbk = mysqli_real_escape_string($conn, $_GET['delete']);
+    //     $delete = "DELETE FROM `booking` WHERE `id_booking`= '$idbk'";
+    //     $query = mysqli_query($conn, $delete);
+    //     $row = mysqli_fetch_assoc($query);
+
+    //     header("Location: ../userdash.php?bookingdeleted");
+
+    //     exit();
+    // }
+    ?>
+
+    <?php
+    
     ?>
 
     <h3>Order Details</h3>
@@ -95,12 +111,10 @@ include 'includes/dbh.inc.php';
             <p><b>Adtional Repairs:</b> This section can only be modified by Ger, but has not been set yet</p>
 
             <div class="btn-dtls">
-                
-                <?php echo '<a href="bill.php?id=' .$row['id_booking'].'" class="print-order-btn"> Print Order</a>'
-                ?>
+                <a href="bill.php?id=<?php echo $row['id_booking'] ?>" class="print-order-btn"> Print Order</a>
                 <a href="userdash.php" class="add-comment-btn"> My Orders</a>
+                <!-- <a href="userdash.php?delete=<?php// echo $row['id_booking'] ?>" onclick="return confirm('Are you sure you want delete this order?')" class="delete-btn"><i class="fa fa-trash" aria-hidden="true"></i></a> -->
             </div>
-
 
         </div>
 
@@ -120,9 +134,9 @@ include 'includes/dbh.inc.php';
             </form>
         </div>
         <ul>
-        <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
+            <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
                 <a href="https://www.instagram.com/cctcollege/" class="fa fa-instagram"></a>
-                    <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
+                <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
         </ul>
         <div class="footer-info">
             <p>CCT College Dublin</p>
