@@ -2,6 +2,7 @@
 if (isset($_POST['book-submit'])) {
     require 'dbh.inc.php';
 
+    $id_user = mysqli_real_escape_string($conn, $_POST['id']);
     $name = mysqli_real_escape_string($conn, $_POST['fname']);
     $mail = mysqli_real_escape_string($conn, $_POST['umail']);
     $phone = mysqli_real_escape_string($conn, $_POST['uphone']);
@@ -14,7 +15,7 @@ if (isset($_POST['book-submit'])) {
     $commment = mysqli_real_escape_string($conn, $_POST['comment']);
 
     // Query
-    $query = mysqli_query($conn,  "INSERT INTO booking(u_name, u_mail, u_phone, c_make, c_eng, c_prob, b_date, b_time, s_type, comments) VALUES ('$name', '$mail', '$phone', '$carMake', '$carEngine', '$carProb', '$bDate', '$bTime', '$sType', '$commment')");
+    $query = mysqli_query($conn,  "INSERT INTO booking(id_user, u_name, u_mail, u_phone, c_make, c_eng, c_prob, b_date, b_time, s_type, comments) VALUES ('$id_user', '$name', '$mail', '$phone', '$carMake', '$carEngine', '$carProb', '$bDate', '$bTime', '$sType', '$commment')");
     if ($query) {
         $_SESSION['id_bk'] = $db->insert_id;
         session_start();
@@ -25,3 +26,4 @@ if (isset($_POST['book-submit'])) {
         $_SESSION['error'] = "Sorry, check your inputs for errors";
     }
 }
+// If number of bookings X redirect to another date

@@ -64,7 +64,8 @@ include_once 'includes/dbh.inc.php';
     <h3>My Orders</h3>
     <div class="flex-container">
         <?php
-        $sql = "SELECT * FROM booking;"; // I need to find a way to display only this user's orders and not all of them
+        $id_user = $_SESSION['userId'];
+        $sql = "SELECT * FROM booking WHERE id_user = $id_user;"; // Now its displaying orders according to the user
         $results = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($results);
         if ($resultCheck > 0) {

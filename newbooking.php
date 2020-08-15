@@ -36,7 +36,7 @@ session_start();
             ?>
             <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
                 <a href="https://www.instagram.com/cctcollege/" class="fa fa-instagram"></a>
-                    <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
+                <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -59,11 +59,11 @@ session_start();
         <!-- I need to create the functions to send the data into the table bookings
         I might create a file just like the signup one  -->
         <div class="details" id="update-prof" style="text-align: center;">
-            
-            <form action="includes/booking.inc.php" method="POST">
-               
 
-            <input type="text" name="fname" value="<?php echo $_SESSION['userName'] ?>"> <!-- I tried to swapping placeholder for value storing the info from the user in the database with the variable session -->
+            <form action="includes/booking.inc.php" method="POST">
+
+                <input type="text" name="id" value="<?php echo $_SESSION['userId'] ?>" style="display: none;">
+                <input type="text" name="fname" value="<?php echo $_SESSION['userName'] ?>"> <!-- I tried to swapping placeholder for value storing the info from the user in the database with the variable session -->
                 <input type="text" name="umail" value="<?php echo $_SESSION['userMail'] ?>">
                 <input type="tel" name="uphone" value="<?php echo $_SESSION['userPhone'] ?>">
                 <input type="text" name="cmake" value="<?php echo $_SESSION['vehicleMake'] ?>">
@@ -102,9 +102,9 @@ session_start();
             </form>
         </div>
         <ul>
-        <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
+            <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
                 <a href="https://www.instagram.com/cctcollege/" class="fa fa-instagram"></a>
-                    <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
+                <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
         </ul>
         <div class="footer-info">
             <p>CCT College Dublin</p>
