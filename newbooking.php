@@ -58,7 +58,15 @@ session_start();
     <div class="flex-container">
         <!-- I need to create the functions to send the data into the table bookings
         I might create a file just like the signup one  -->
-        <div class="details" id="update-prof" style="text-align: center;">
+        <div class="details" style="text-align: center;">
+            <?php
+            if (isset($_GET["booking"])) {
+                if ($_GET["booking"] == "success") {
+                    echo '<h4> Booking Successful!<h4>';
+                }
+            }
+            ?>
+
 
             <form action="includes/booking.inc.php" method="POST">
 

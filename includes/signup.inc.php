@@ -9,20 +9,20 @@ if (isset($_POST['signup-submit'])) {
     $passwordRepeat = $_POST['pwd-repeat'];
 
     if (empty($username) || empty($usermail) || empty($password) || empty($passwordRepeat)) {
-        header("Location: ../login.php?error?=emptyfields&name=" . $username . "&mail=" . $usermail);
+        header("Location: ../login.php?error=emptyfields&name=" . $username . "&mail=" . $usermail);
         exit();
     } else if (!preg_match("/^[a-zA-Z0-9]*$/", $username) && !filter_var($usermail, FILTER_VALIDATE_EMAIL)) {
-        header("Location: ../login.php?error?=invalidmailname");
+        header("Location: ../login.php?error=invalidmailname");
         exit();
     }
     else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
         header("Location: ../login.php?error?=invalidname&mail=" . $usermail);
         exit();
     } else if (!filter_var($usermail, FILTER_VALIDATE_EMAIL)) {
-        header("Location: ../login.php?error?=invalidmail&name=" . $username);
+        header("Location: ../login.php?error=invalidmail&name=" . $username);
         exit();
     } else if ($password !== $passwordRepeat) {
-        header("Location: ../login.php?error?=passwordcheckname=" . $username . "&mail=" . $usermail);
+        header("Location: ../login.php?error=passwordcheckname=" . $username . "&mail=" . $usermail);
         exit();
     }
 

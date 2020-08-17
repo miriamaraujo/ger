@@ -26,7 +26,7 @@ session_start();
                 <li><a href="about.php">About Us</a></li>
                 <?php
                 if (isset($_SESSION['userId'])) {
-                    
+
                     echo '<li><a href="userdash.php"><i class="fa fa-user-o" aria-hidden="true"></i>My Account</a></li>';
                     echo '<li><a href="includes/logout.inc.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>';
                 } else {
@@ -35,7 +35,7 @@ session_start();
 
                 ?>
                 <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
-                <a href="https://www.instagram.com/cctcollege/" class="fa fa-instagram"></a>
+                    <a href="https://www.instagram.com/cctcollege/" class="fa fa-instagram"></a>
                     <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
             </ul>
             <div class="burger">
@@ -63,8 +63,30 @@ session_start();
                     <input type="text" name="umail" placeholder="E-mail">
                     <input type="password" name="pwd" placeholder="Password">
                     <input type="password" name="pwd-repeat" placeholder="Confirm password">
-                    <input  type="submit" name="signup-submit" value="Create Account">
+                    <input type="submit" name="signup-submit" value="Create Account">
                 </form>
+
+
+                <?php
+                // Displaying the error handling when creating new user
+                if (isset($_GET["error"])) {
+                    if ($_GET["error"] == "emptyfields") {
+                        echo '<p>Empty fields, check the form to proceed!</p>';
+                    } else if ($_GET["error"] == "invalidmailname") {
+                        echo '<p>Invalid username and e-mail!</p>';
+                    } else if ($_GET["error"] == "invalidmail") {
+                        echo '<p>Invalid e-mail!</p>';
+                    } else if ($_GET["error"] == "passwordcheckname") {
+                        echo '<p>Your passwords do not match!</p>';
+                    } else if ($_GET["error"] == "usertaken") {
+                        echo '<p>Sorry! Username is already taken!</p>';
+                    }
+                }
+                ?>
+
+
+
+
             </div>
         </div>
     </header>

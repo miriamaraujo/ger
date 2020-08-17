@@ -36,7 +36,7 @@ session_start();
             ?>
             <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
                 <a href="https://www.instagram.com/cctcollege/" class="fa fa-instagram"></a>
-                    <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
+                <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -64,6 +64,13 @@ session_start();
     <div class="flex-container">
         <div class="details" style="text-align: center;">
             <h4>Update Profile Details</h4>
+            <?php
+            if (isset($_GET["error"])) {
+                if ($_GET["error"] == "emptyfields") {
+                    echo '<p>Empty fields, fill up the form to proceed!</p>';
+                }
+            }
+            ?>
             <form action="includes/update.inc.php" method="POST">
                 <input type="text" name="id" value="<?php echo $_SESSION['userId'] ?>" style="display: none;">
                 <br><label for="n_name">Your Name</label><br>
@@ -82,7 +89,7 @@ session_start();
                 <input type="text" name="l_details" value="<?php echo $_SESSION['licence'] ?>">
                 <br><label for="n_address">Address</label><br>
                 <input type="text" name="n_address" value="<?php echo $_SESSION['uAddress'] ?>">
-                
+
                 <select name="s_type" placeholder="Booking Type">
                     <option value="default">Service Type</option>
                     <option value="Annual Service">Annual Service</option>
@@ -94,6 +101,7 @@ session_start();
 
 
             </form>
+            
         </div>
 
 
@@ -117,9 +125,9 @@ session_start();
             </form>
         </div>
         <ul>
-        <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
+            <li><a href="https://www.facebook.com/cctcollegedublin" class="fa fa-facebook"></a>
                 <a href="https://www.instagram.com/cctcollege/" class="fa fa-instagram"></a>
-                    <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
+                <a href="https://www.linkedin.com/school/college-of-computer-training-cct" class="fa fa-linkedin"></a></li>
         </ul>
         <div class="footer-info">
             <p>CCT College Dublin</p>

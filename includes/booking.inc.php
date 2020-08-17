@@ -20,7 +20,8 @@ if (isset($_POST['book-submit'])) {
         $_SESSION['id_bk'] = $db->insert_id;
         session_start();
                
-        header('location: ../newbooking.php?bookingsuccess');
+        header('location: ../newbooking.php?booking=success');
+        
         exit();
     } else {
         $_SESSION['error'] = "Sorry, check your inputs for errors";
