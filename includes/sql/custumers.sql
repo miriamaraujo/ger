@@ -9,8 +9,6 @@ CREATE TABLE `gers_garage`.`customers` (
      `user_car_engine` VARCHAR NOT NULL , 
      PRIMARY KEY (`user_id`)) ENGINE = InnoDB;
 
-
-
 CREATE TABLE `gers_garage`.`bookings`(
     `id_booking` INT(100) NOT NULL AUTO_INCREMENT,
     `id_user` INT(100) NOT NULL,

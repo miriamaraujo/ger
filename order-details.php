@@ -26,8 +26,9 @@ include 'includes/dbh.inc.php';
         <div class="logo"><a href="index.php"> Ger's Garage</a></div>
 
         <ul class="nav-links">
-            <li><a>+353 1 6333444</a> </li>
-            <li><a href="about.php">About Us</a></li>
+        <li><a><i class="fa fa-phone" aria-hidden="true"></i>+353 1 6333444</a> </li>
+                <li><a href="about.php"><i class="fa fa-car" aria-hidden="true"></i>About Us</a></li>
+               
             <?php
             if (isset($_SESSION['userId'])) {
 

@@ -22,8 +22,9 @@ session_start();
         <nav>
             <div class="logo"><a href="index.php">Ger's Garage</a></div>
             <ul class="nav-links">
-                <li><a>+353 1 6333444</a> </li>
-                <li><a href="about.php">About Us</a></li>
+            <li><a><i class="fa fa-phone" aria-hidden="true"></i>+353 1 6333444</a> </li>
+                <li><a href="about.php"><i class="fa fa-car" aria-hidden="true"></i>About Us</a></li>
+               
                 <?php
                 if (isset($_SESSION['userId'])) {
 
@@ -51,6 +52,17 @@ session_start();
                     <input type="email" name="umail" placeholder="E-mail">
                     <input type="password" name="pwd" placeholder="Password">
                     <input type="submit" name="login-submit" value="Login">
+                    <?php
+                    if(isset($_GET["signup"])){
+                        if($_GET["signup"] == "success"){
+                            echo '<h4> Account created with success!</h4>
+                            <h5> Login to continue</h5>';
+
+                        }
+
+                    }
+
+                    ?>
                     <!-- <div class="rememberme">
                         <input type="checkbox" name="remember" id="remember"><label for="remember">Remember me </label>
                     </div> -->
@@ -71,17 +83,19 @@ session_start();
                 // Displaying the error handling when creating new user
                 if (isset($_GET["error"])) {
                     if ($_GET["error"] == "emptyfields") {
-                        echo '<p>Empty fields, check the form to proceed!</p>';
+                        echo '<p class="p-alert">Empty fields, check the form to proceed!</p>';
                     } else if ($_GET["error"] == "invalidmailname") {
-                        echo '<p>Invalid username and e-mail!</p>';
+                        echo '<p class="p-alert">Invalid username and e-mail!</p>';
                     } else if ($_GET["error"] == "invalidmail") {
-                        echo '<p>Invalid e-mail!</p>';
+                        echo '<p class="p-alert">Invalid e-mail!</p>';
                     } else if ($_GET["error"] == "passwordcheckname") {
-                        echo '<p>Your passwords do not match!</p>';
+                        echo '<p class="p-alert">Your passwords do not match!</p>';
                     } else if ($_GET["error"] == "usertaken") {
-                        echo '<p>Sorry! Username is already taken!</p>';
+                        echo '<p class="p-alert">Sorry! Username is already taken!</p>';
                     }
                 }
+
+
                 ?>
 
 

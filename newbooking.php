@@ -22,8 +22,9 @@ session_start();
         <div class="logo"><a href="index.php"> Ger's Garage</a></div>
 
         <ul class="nav-links">
-            <li><a>+353 1 6333444</a> </li>
-            <li><a href="about.php">About Us</a></li>
+            <li><a><i class="fa fa-phone" aria-hidden="true"></i>+353 1 6333444</a> </li>
+            <li><a href="about.php"><i class="fa fa-car" aria-hidden="true"></i>About Us</a></li>
+
             <?php
             if (isset($_SESSION['userId'])) {
 
@@ -56,9 +57,7 @@ session_start();
 
     <h3>New Appointment</h3>
     <div class="flex-container">
-        <!-- I need to create the functions to send the data into the table bookings
-        I might create a file just like the signup one  -->
-        <div class="details" style="text-align: center;">
+            <div class="details" style="text-align: center;">
             <?php
             if (isset($_GET["booking"])) {
                 if ($_GET["booking"] == "success") {
@@ -66,8 +65,6 @@ session_start();
                 }
             }
             ?>
-
-
             <form action="includes/booking.inc.php" method="POST">
 
                 <input type="text" name="id" value="<?php echo $_SESSION['userId'] ?>" style="display: none;">

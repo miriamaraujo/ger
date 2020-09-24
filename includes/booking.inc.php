@@ -27,4 +27,5 @@ if (isset($_POST['book-submit'])) {
         $_SESSION['error'] = "Sorry, check your inputs for errors";
     }
 }
-// If number of bookings X redirect to another date
+// If number of bookings be X redirect to another date
+// If number of bookings be X redirect to another date
