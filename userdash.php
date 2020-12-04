@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('includes/usercheck.php');
-include_once 'includes/dbh.inc.php';
+include 'includes/dbh.inc.php';
 
 ?>
 <!DOCTYPE html>
