@@ -1,7 +1,7 @@
 <?php
 
-$servername = "localhost";
-$dbusername = "root";
+$servername = "#";
+$dbusername = "#";
 $dbpassword = "";
 $dbName = "gers_garage";
 
